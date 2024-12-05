@@ -1,0 +1,28 @@
+<div
+  class="row"
+  infinite-scroll
+  (scrolled)="onScrollDown()"
+>
+  <div
+    *ngFor="let character of characters"
+    class="col-xs-12 col-sm-6 col-md-4"
+  >
+    <app-character [character]=character/>
+  </div>
+
+  <div
+    *ngIf="characters.length <= 0"
+    class="col-xs-12 col-sm-12 col-md-12 mt-5 container-notFound"
+  >
+    <p>No results...</p>
+  </div>
+</div>
+
+<button
+  *ngIf="showGoUpButton"
+  (click)="onScrollTop()"
+  [ngClass]="'no-hidden'"
+  class="btn btn-dark"
+>
+  Go up
+</button>
